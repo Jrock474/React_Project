@@ -1,13 +1,40 @@
-import React from 'react'
-import { useContext } from 'react'
-import { CurrentCountry } from '../App'
+import React, { useEffect } from 'react'
+import { CountryData } from '../App'
+import { useContext,useState } from 'react'
 
 const Country = () => {
-  const [currentCountry, setCurrentCountry] = useContext(CurrentCountry)
-  setCurrentCountry(data.name.common)
+
+  const[countryFlag, setCountryFlag] = useState([])
+  const [countryName, setCountryName] = useState([])
+  const [countryCapital, setCountryCapital] = useState([])
+  const [countryTimeZones, setCountryTimeZones] = useState([])
+  const [countryContinents, setCountryContinents] = useState([])
+  const [countryPopulation, setCountryPopulation] = useState([])
+
+  let data = useContext(CountryData)
+
+  useEffect(()=>{
+    console.log(data)
+    setCountryFlag(data[0].flags.svg)
+    setCountryName(data[0].name.common)
+    setCountryCapital(data[0].capital[0])
+    setCountryTimeZones(data[0].timezones[0])
+    setCountryContinents(data[0].continents[0])
+    setCountryPopulation(data[0].population)
+  },[])
+
+
+
 
   return (
-    <div>{currentCountry}</div>
+    <>
+    <img src={countryFlag} />
+    <div>{countryName}</div>
+    <div>{countryCapital}</div>
+    <div>{countryTimeZones}</div>
+    <div>{countryContinents}</div>
+    <div>{countryPopulation}</div>
+    </>
   )
 }
 

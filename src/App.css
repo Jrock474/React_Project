@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.site-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.country-flag-container{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.flag-list{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    
+}
+
+.flag-list img{
+    height: 150px;
+    width: 225px;
+}
+
+.flag-list button{
+    margin-top: 20px;
+}
