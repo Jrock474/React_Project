@@ -1,56 +1,55 @@
 import React from "react";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { CurrentCountry } from "../App";
+import { CountryData } from "../App";
 
 const Home = () => {
-  const [countryPictures, setCountryPictures] = useState([]);
-  const [CountryData, setCountryData] = useState([])
-
-  const [countryName, setCountryName] = useState([])
-  const [countryCapital, setCountryCapital] = useState([])
-  const [countryTimeZones, setCountryTimeZones] = useState([])
-  const [countryContinents, setCountryContinents] = useState([])
-  const [countryPopulation, setCountryPopulation] = useState([])
+  const [allCountries, setAllCountries] = useState([])
+  const [filteredCountries, setFilteredCountries] = useState([])
   const [searchInput, setSearchInput] = useState("")
-  
 
   const getCountries = async () => {
+    console.log("Called getCountries")
     let response = await fetch("https://restcountries.com/v3.1/all");
     let data = await response.json();
-    let pictureList = []
-    let nameList = []
-    
-    for (let i = 0; i < data.length; i++) {
-      pictureList.push(data[i].flags.png)
-      nameList.push(data[i].name.common)
-    }
-    setCountryPictures(pictureList)
-    setCountryData(data)
+    setAllCountries(data)
+    setFilteredCountries(data)
   };
 
 
-  const getCountryData = async(countryName) =>{
-    let response = await fetch(`https://restcountries.com/v3.1/name/${countryName}`)
+  const [countryPage, setCountryPage] = useContext(CurrentCountry)
+  const [countryData, setCountryData] = useContext(CountryData)
+
+  const navigate = useNavigate()
+
+  const getCountryData = async(selectedCountry) =>{
+    let response = await fetch(`https://restcountries.com/v3.1/name/${selectedCountry}`)
+    console.log("Response: ", response)
     let data = await response.json()
+
+    setCountryPage(selectedCountry)
+    let country = ""
+    
     for (let i=0; i < data.length; i++){
-        setCountryName(data[i].name.common)
-        console.log(data[i].name.common)
-        setCountryCapital(data[i].capital[0])
-        console.log(data[i].capital[0])
-        setCountryTimeZones(data[i].timezones[0])
-        console.log(data[i].timezones[0])
-        setCountryContinents(data[i].continents[0])
-        console.log(data[i].continents[0])
-        setCountryPopulation(data[i].population)
-        console.log(data[i].population)
-    }
+        setCountryData(data[i])
+        country = data[i].name.common
+      } 
+    navigate(`/${country}`)
   }
 
 
   const onInputChange = (e) =>{
     setSearchInput(e.target.value)
-  }
+    let countriesFiltered = allCountries.filter(country =>{
+      let title = country.name.common.toLowerCase()
+      let searchTerm = title.includes(searchInput.toLowerCase())
+      return searchTerm
+    })
+    setFilteredCountries(countriesFiltered)
 
+
+  }
 
   useEffect(() => {
     getCountries();
@@ -58,22 +57,18 @@ const Home = () => {
 
   return (
     <>
-      <div>
-        <div>
-        <input type="text" value={searchInput} onChange={onInputChange}></input>
+      <div className="search-container">
+        <input type="text" value={searchInput} onChange={onInputChange} />
         <button>Search</button>
-
-        </div>
-        <ul>
-          {CountryData.map((data, index) => (
-              <li key={index} className="flag-list">
-                <img src={data.flags.png} />
-                <button  onClick={(()=>{getCountryData(data.name.common)})} ><Link to="/country">Learn More</Link></button>
-                
-              </li>
-            ))}
-        </ul>
       </div>
+      <ul className="country-flag-container">
+        {filteredCountries.map((data, index) => (
+            <li key={index} className="flag-list">
+              <img src={data.flags.svg} />
+              <button onClick={(()=>{getCountryData(data.name.common)})}>Details</button>
+            </li>
+          ))}
+      </ul>
     </>
   );
 };

@@ -3,23 +3,28 @@ import { Route,Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import { createContext, useState } from 'react'
 import Country from './pages/Country'
+import Header from './conponents/Header'
 
 export const CurrentCountry = createContext()
+export const CountryData = createContext()
 
 function App() {
-  const [selectCountry, setSelectCountry] = useState("N/A")
+
+  const [selectedCountry, setSelectedCountry] = useState("N/A")
+  const [countryData, setCountryData] = useState([])
+
   return (
     <>
     <div className='site-wrapper'>
-      <CurrentCountry.Provider  value={[selectCountry, setSelectCountry]}>
+      <Header />
+      <CurrentCountry.Provider  value={[selectedCountry, setSelectedCountry]}>
+      <CountryData.Provider value= {[countryData, setCountryData]}>
         <Routes>
             <Route path = "/" element= {<Home />} />
-            <Route path = "/country" element= {<Country />}/>
+            <Route path ={`/${selectedCountry}`} element= {<Country />}/>
         </Routes>
+      </CountryData.Provider>
       </CurrentCountry.Provider>
-      
-
-
     </div>  
     </>
   )
