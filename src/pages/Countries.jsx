@@ -1,8 +1,4 @@
-import React from "react";
-import { useEffect, useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { CurrentCountry } from "../App";
-import { CountryData } from "../App";
+import React from 'react'
 
 const Countries = () => {
   const [allCountries, setAllCountries] = useState([])
@@ -79,7 +75,7 @@ const Countries = () => {
           ))}
       </ul>
     </>
-  );
-};
+  )
+}
 
 export default Countries;
