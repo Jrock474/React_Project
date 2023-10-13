@@ -1,6 +1,6 @@
 import './App.css'
 import { Route,Routes } from 'react-router-dom'
-import Home from './pages/Home'
+import Countries from './pages/Countries'
 import { createContext, useState } from 'react'
 import Country from './pages/Country'
 import Header from './conponents/Header'
@@ -20,7 +20,7 @@ function App() {
       <CurrentCountry.Provider  value={[selectedCountry, setSelectedCountry]}>
       <CountryData.Provider value= {[countryData, setCountryData]}>
         <Routes>
-            <Route path = "/" element= {<Home />} />
+            <Route path = "/" element= {<Countries />} />
             <Route path ={`/${selectedCountry}`} element= {<Country />}/>
         </Routes>
       </CountryData.Provider>

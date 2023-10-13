@@ -3,9 +3,33 @@
     padding: 0;
 }
 
+html{
+    height: 100%;
+    background-color: rgb(153, 178, 185);
+}
+
+body{
+    height: inherit;
+}
+
+#root{
+    height: inherit;
+}
+
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    text-decoration: none;
+}
+
+
 .site-wrapper{
     display: flex;
     flex-direction: column;
+    height: inherit;
 }
 
 .country-flag-container{
@@ -19,7 +43,10 @@
     display: flex;
     flex-direction: column;
     padding: 30px;
-    
+    display: flex;
+    align-items: center;
+    height: 225px;
+    width: 223px;
 }
 
 .flag-list img{
@@ -27,6 +54,136 @@
     width: 225px;
 }
 
+.flag-list p{
+    margin-top: 15px;
+    word-wrap: break-word;
+    text-align: center;
+}
+
 .flag-list button{
     margin-top: 20px;
+    width: 100%;
+}
+
+
+.navbar li{
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 30px;
+    background-color: rgb(4, 106, 60);
+    margin-bottom: 40px;
+}
+
+.search-container{
+    display: flex;
+    justify-content: center;
+}
+
+.country-container{
+    display: flex;
+    flex-direction: column;   
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 1.5rem;
+}
+
+.country-container p{
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.country-flag{
+    height: 270px;
+    width: 480px;
+    margin-bottom: 30px;
+}
+
+.flag-container{
+    display: flex;
+    justify-content: center;
+}
+
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    border-style: groove;
+    border-width: 5px;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.contact-form input{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+
+.form-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+}
+
+.country-name{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.country-flag-container{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.link{
+    text-decoration: none;
+    color: black;
+}
+
+.message-box{
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    resize: none;
+}
+
+h2{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+#lightbox {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#lightbox img{
+    max-width: 80%;
+    height: auto;
+    padding-left: 10px;
+    padding-right: 10px;
 }
