@@ -68,8 +68,8 @@ const Countries = () => {
     <>
       <h2>Country List</h2>
       <div className="search-container">
-        <input type="text" value={searchInput} onChange={onInputChange} />
-        <input type="text" value={continentSearchInput} onChange={onInputContinentChange} />
+        <input type="text" value={searchInput} placeholder="Country Search" onChange={onInputChange} />
+        <input type="text" value={continentSearchInput} placeholder="continent Seach" onChange={onInputContinentChange} />
       </div>
       <ul className="country-flag-container">
         {filteredCountries.map((data, index) => (
