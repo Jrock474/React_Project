@@ -5,7 +5,7 @@ const Donate = () => {
     <>
     <div className='donation-container'>
         <h2>Donations</h2>
-        <img className="donation-img" src='public/images/bmc_qr.png' />
+        <img className="donation-img" src='/images/bmc_qr.png' />
     </div>
     </>
     
