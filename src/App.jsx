@@ -6,6 +6,7 @@ import Country from './pages/Country'
 import Header from './conponents/Header'
 import Home from './pages/Home'
 import Contact_Us from './pages/Contact_Us'
+import Donate from './pages/Donate'
 
 export const CurrentCountry = createContext()
 export const CountryData = createContext()
@@ -23,6 +24,7 @@ function App() {
       <CountryData.Provider value= {[countryData, setCountryData]}>
         <Routes>
             <Route path = "/" element= {<Home />} />
+            <Route path = "/donate" element= {<Donate />} />
             <Route path = "/countries" element= {<Countries />} />
             <Route path = "/contact_us" element= {<Contact_Us />} />
             <Route path ={`/countries/${selectedCountry}`} element= {<Country />}/>
