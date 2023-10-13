@@ -26,6 +26,11 @@ const Header = () => {
               Contact Us
             </Link>
           </li>
+          <li>
+            <Link className="link" to="/donate">
+              Donations
+            </Link>
+          </li>
         </ul>
       </div>
     </>
