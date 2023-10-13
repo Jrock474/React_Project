@@ -1,6 +1,10 @@
 import React from 'react'
+import { useEffect } from 'react'
 
 const Contact_Us = () => {
+  useEffect(()=>{
+    console.log("hiyo")
+  },[])
   return (
     <>
     <div className='form-container'>

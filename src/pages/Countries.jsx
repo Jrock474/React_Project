@@ -1,6 +1,11 @@
 import React from 'react'
+import { useEffect, useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { CountryData } from '../App'
+import { CurrentCountry } from '../App'
 
 const Countries = () => {
+ 
   const [allCountries, setAllCountries] = useState([])
   const [filteredCountries, setFilteredCountries] = useState([])
   const [searchInput, setSearchInput] = useState("")
@@ -55,12 +60,13 @@ const Countries = () => {
     setFilteredCountries(countriesFiltered)
   }
 
-  useEffect(() => {
-    getCountries();
-  }, []);
+  useEffect(()=>{
+    getCountries()
+  },[])
 
   return (
     <>
+      <h2>Country List</h2>
       <div className="search-container">
         <input type="text" value={searchInput} onChange={onInputChange} />
         <input type="text" value={continentSearchInput} onChange={onInputContinentChange} />

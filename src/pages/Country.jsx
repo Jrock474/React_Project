@@ -32,23 +32,23 @@ const Country = () => {
 
   let data = useContext(CountryData)
 
-  // useEffect(()=>{
-  //   setGMaps(data[0].maps.googleMaps)
-  //   setFlagDescriptions(data[0].flags.alt)
-  //   setCountryFlag(data[0].flags.svg)
-  //   setCountryName(data[0].name.official)
-  //   setCountryCapital(data[0].capital[0])
-  //   setCountryTimeZones(data[0].timezones[0])
-  //   setCountryContinents(data[0].continents[0])
-  //   setCountryPopulation(data[0].population)
-  // },[])
+  useEffect(()=>{
+    setFlagDescriptions(data[0].flags.alt)
+    setGMaps(data[0].maps.googleMaps)
+    setCountryFlag(data[0].flags.svg)
+    setCountryName(data[0].name.official)
+    setCountryCapital(data[0].capital[0])
+    setCountryTimeZones(data[0].timezones[0])
+    setCountryContinents(data[0].continents[0])
+    setCountryPopulation(data[0].population)
+  },[])
 
 
 
 
   return (
     <>
-    {/* <div className='country-container'>
+     <div className='country-container'>
     {isLightboxActive === true ? <div onClick={(e) =>{lightboxImageClick(e.target.src)}} id="lightbox"><img src ={lightbox}></img></div> : null}
       <h2 className='country-name'>{countryName}</h2>
       <div className='country-flag-container'>
@@ -60,7 +60,7 @@ const Country = () => {
       <p className='country-continents'>Continent: {countryContinents}</p>
       <p className='country-population'>Population: {countryPopulation}</p>
       <a href={gMaps} target="_blank">Google Maps</a>
-    </div> */}
+    </div> 
     </>
   )
 }

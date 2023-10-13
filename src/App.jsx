@@ -12,7 +12,7 @@ export const CountryData = createContext()
 
 function App() {
 
-  const [selectedCountry, setSelectedCountry] = useState("")
+  const [selectedCountry, setSelectedCountry] = useState("N/A")
   const [countryData, setCountryData] = useState([])
 
   return (
