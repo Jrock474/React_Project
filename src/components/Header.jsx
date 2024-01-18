@@ -1,7 +1,9 @@
-import React from "react";
+import React,{ useState } from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+
+  const [isNavbarActive, setIsNavbarActive] = useState(false)
   return (
     <>
       <div className="header">
@@ -10,12 +12,12 @@ const Header = () => {
             Geography Seach
           </Link>
         </h1>
+        <div class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
         <ul className="navbar">
-          <a href="#" class="toggle-button">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </a>
           <li>
             <Link className="link" to="/countries">
               Countries
@@ -27,9 +29,6 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link className="link" to="/donate">
-              Donations
-            </Link>
           </li>
         </ul>
       </div>

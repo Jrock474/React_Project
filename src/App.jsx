@@ -3,7 +3,7 @@ import { Route,Routes } from 'react-router-dom'
 import Countries from './pages/Countries'
 import { createContext, useState } from 'react'
 import Country from './pages/Country'
-import Header from './conponents/Header'
+import Header from './components/Header'
 import Home from './pages/Home'
 import Contact_Us from './pages/Contact_Us'
 import Donate from './pages/Donate'
@@ -12,6 +12,8 @@ export const CurrentCountry = createContext()
 export const CountryData = createContext()
 
 function App() {
+
+  const maxWidth = screen.width
 
   const [selectedCountry, setSelectedCountry] = useState("null")
   const [countryData, setCountryData] = useState([])
