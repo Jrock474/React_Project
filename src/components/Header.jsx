@@ -4,6 +4,14 @@ import { Link } from "react-router-dom";
 const Header = () => {
 
   const [isNavbarActive, setIsNavbarActive] = useState(false)
+
+  const handleClick = () =>{
+    if (isNavbarActive === false) {
+      setIsNavbarActive(true)
+    } else {
+      setIsNavbarActive(false)
+    }
+  }
   return (
     <>
       <div className="header">
@@ -12,12 +20,12 @@ const Header = () => {
             Geography Seach
           </Link>
         </h1>
-        <div class="toggle-button">
+        <div class="toggle-button" onClick={handleClick}>
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
           </div>
-        <ul className="navbar">
+        <ul className={isNavbarActive ? "navbar-active" : "navbar"}>
           <li>
             <Link className="link" to="/countries">
               Countries
@@ -27,8 +35,6 @@ const Header = () => {
             <Link className="link" to="/contact_us">
               Contact Us
             </Link>
-          </li>
-          <li>
           </li>
         </ul>
       </div>

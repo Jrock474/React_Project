@@ -279,6 +279,17 @@ h2{
     padding-right: 10px;
 }
 
+.toggle-button{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    top: 25px;
+    right: 25px;
+}
+
 .toggle-button .bar{
     height: 3px;
     width: 100%;
@@ -287,6 +298,11 @@ h2{
 }
 
 @media(max-width:1000px) {
+
+    .header{
+        text-align: center;
+        flex-direction: column;
+    }
 
     .country-flag{
         height: 150px;
@@ -308,7 +324,7 @@ h2{
         display: none;
     }
 
-    .nav-area li{
+    .navbar li{
         display: flex;
         flex-direction: column;
         padding: 0;
@@ -317,6 +333,37 @@ h2{
 
     .toggle-button {
         display: flex;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .navbar-active{
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .navbar-active li{
+        display: inline-block;
+        font-size: 1.3rem;
+        padding: 8px;
+    }
+    
+    .navbar-active li a{
+        color: #fff;
+        text-decoration: none;
+        padding: 10px;
+    }
+    
+    .navbar-active li a:hover{
+        background: #fff;
+        color: #333;
     }
 
     #lightbox img{
