@@ -372,5 +372,11 @@ h2{
         padding-left: 10px;
         padding-right: 10px;
     }
+
+    .home-container p{
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 20px;
+    }
 }
 
