@@ -1,7 +1,17 @@
-import React from "react";
+import React,{ useState } from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+
+  const [isNavbarActive, setIsNavbarActive] = useState(false)
+
+  const handleClick = () =>{
+    if (isNavbarActive === false) {
+      setIsNavbarActive(true)
+    } else {
+      setIsNavbarActive(false)
+    }
+  }
   return (
     <>
       <div className="header">
@@ -10,12 +20,12 @@ const Header = () => {
             Geography Seach
           </Link>
         </h1>
-        <ul className="navbar">
-          <a href="#" class="toggle-button">
+        <div class="toggle-button" onClick={handleClick}>
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
-          </a>
+          </div>
+        <ul className={isNavbarActive ? "navbar-active" : "navbar"}>
           <li>
             <Link className="link" to="/countries">
               Countries
@@ -24,11 +34,6 @@ const Header = () => {
           <li>
             <Link className="link" to="/contact_us">
               Contact Us
-            </Link>
-          </li>
-          <li>
-            <Link className="link" to="/donate">
-              Donations
             </Link>
           </li>
         </ul>

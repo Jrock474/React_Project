@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react'
-import { CountryData } from '../App'
-import { useContext,useState } from 'react'
-import Country_Details from '../conponents/Country_Details'
+import React from 'react'
+import Country_Details from '../components/Country_Details'
 
 const Country = () => {
 
