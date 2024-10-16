@@ -1,1 +1,1 @@
-Personal Project showcasing leaning progress with React and its hooks
+Personal Project showcasing learning progress with React and its hooks
